@@ -12,6 +12,8 @@
     --header-size: 75px;
 
     --padding: 20px;
+
+    --index: 1dvw + 1dvh;
 }
 
 *, *::before, *::after {
@@ -27,6 +29,19 @@ html {
 
 header.header, main.main, footer.footer {
     padding-inline: var(--padding);
+}
+
+main.main {
+    padding-top: var(--header-size);
+}
+
+h1 {
+    font-size: calc(4.65 * var(--index));
+}
+
+h2 {
+    font-size: calc(3 * var(--index));
+    font-weight: 400;
 }
 
 ul {
@@ -73,3 +88,56 @@ header.header {
     column-gap: var(--padding);
 }
 
+.hero {
+    width: 100%;
+    height: 90dvh;
+    
+    position: relative;
+
+    &>* {
+        width: 100%;
+        height: 100%;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        width: min(50%, 1000px);
+
+        h1, h2 {
+            text-shadow: 0 0 5px var(--white);
+        }
+
+        h2 {
+            opacity: .7;
+        }
+
+        a {
+            width: fit-content;
+            
+            padding: var(--padding) calc(3 * var(--padding));
+
+            background: linear-gradient(45deg, var(--blue), var(--green));
+            color: var(--white);
+        }
+    }
+    
+    .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        
+        img {
+            width: calc(100% + 2 * var(--padding));
+            height: 100%;
+            
+            object-fit: cover;
+            object-position: right;
+
+            transform: translateX(calc(-1 * var(--padding)));
+        }
+    }
+}
