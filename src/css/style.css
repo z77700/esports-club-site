@@ -1,10 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 
-:root{
+:root {
     --black: #222222;
     --white: #FFFFFF;
     --blue: #65DAFF;
-    --green:  #70FFCB;
+    --green: #70FFCB;
 
     --background-color: var(--black);
     --font-color: var(--white);
@@ -16,7 +16,9 @@
     --index: 1dvw + 1dvh;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -27,7 +29,13 @@ html {
     font-size: 20px;
 }
 
-header.header, main.main, footer.footer {
+body {
+    background-color: var(--black);
+}
+
+header.header,
+main.main,
+footer.footer {
     padding-inline: var(--padding);
 }
 
@@ -91,7 +99,7 @@ header.header {
 .hero {
     width: 100%;
     height: 90dvh;
-    
+
     position: relative;
 
     &>* {
@@ -106,7 +114,8 @@ header.header {
 
         width: min(50%, 1000px);
 
-        h1, h2 {
+        h1,
+        h2 {
             text-shadow: 0 0 5px var(--white);
         }
 
@@ -116,28 +125,69 @@ header.header {
 
         a {
             width: fit-content;
-            
+
             padding: var(--padding) calc(3 * var(--padding));
 
             background: linear-gradient(45deg, var(--blue), var(--green));
             color: var(--white);
         }
     }
-    
+
     .background {
         position: absolute;
         top: 0;
         left: 0;
         z-index: -1;
-        
+
         img {
             width: calc(100% + 2 * var(--padding));
             height: 100%;
-            
+
             object-fit: cover;
             object-position: right;
 
             transform: translateX(calc(-1 * var(--padding)));
         }
     }
+}
+
+.info {
+    background-color: var(--black);
+
+    width: 100%;
+    height: 100%;
+    padding-block: 100px;
+
+    position: relative;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        gap: var(--padding);
+    }
+
+    .information {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--padding);
+
+        width: 18%;
+
+        text-align: center;
+        
+        p {
+            background: linear-gradient(45deg, var(--blue), var(--green));
+            background-clip: text;
+            color: transparent;
+            font-size: 1.8rem;
+        }
+
+        img {
+            width: 85%;
+        }
+    }
+
+
 }
